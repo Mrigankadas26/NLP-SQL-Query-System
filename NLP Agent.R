@@ -3,12 +3,10 @@ setwd('C:/Users/asus/Downloads')
 
 #Setting API Keys
 
-
+Sys.setenv(OPENROUTER_API_KEY = "API KEY")
 if (Sys.getenv("OPENROUTER_API_KEY") == "") {
   stop("API key not set properly.")
 }
-
-
 
 library(DBI)
 library(RSQLite)
@@ -120,7 +118,10 @@ run_agent <- function(question) {
   cat("\n=============================\n")
 }
 
+# Check for API Key
 Sys.getenv("OPENROUTER_API_KEY")
+
+# RUN AGENT
 run_agent("Which region has highest total revenue?")
 run_agent("Top 5 SKUs by uplift percentage")
 run_agent("Total trade spend by region")
