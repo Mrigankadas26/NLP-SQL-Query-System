@@ -46,7 +46,7 @@ install.packages(c("readxl", "dplyr", "DBI",
 
 **2. Set your OpenRouter API key**
 ```r
-Sys.setenv(OPENROUTER_API_KEY = "your-key-here")
+Sys.setenv(OPENROUTER_API_KEY = "your API Key")
 ```
 Get a free key at openrouter.ai
 
@@ -76,7 +76,7 @@ run_agent("Show revenue trend by region")
 
 - **Language** — R
 - **Data layer** — RSQLite (in-memory), dplyr
-- **NLP layer** — OpenRouter API (GPT-4o-mini)
+- **NLP layer** — OpenRouter API
 - **Input** — Multi-sheet FMCG Excel dataset (not included, 
   proprietary)
 
@@ -88,5 +88,4 @@ Dataset not included in this repo as it contains proprietary
 company data. The pipeline is designed to work with any similarly 
 structured FMCG POS dataset.
 
-Built as part of an analytics assignment — MBA, 
-University of Delhi.
+
