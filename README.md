@@ -52,7 +52,7 @@ Get a free key at openrouter.ai
 
 **3. Run ETL pipeline**
 
-Run `etl_pipeline.R` with your dataset. Outputs `gold_table.csv`.
+Run `Gold_table.R` with your dataset. Outputs `gold_table.csv`.
 
 **4. Run the NLP agent**
 
