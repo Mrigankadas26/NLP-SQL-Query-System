@@ -11,7 +11,7 @@ setwd('C:/Users/asus/Downloads')
 file_path <- "Beverages Datasets.xlsx"
 
 ############################################################
-# 1️⃣ LOAD DATA
+# LOAD DATA
 ############################################################
 
 pos <- read_excel(file_path, sheet = "pos_transactions")
@@ -22,7 +22,7 @@ inventory <- read_excel(file_path, sheet = "inventory_snapshot")
 wms_map <- read_excel(file_path, sheet = "wms_sku_mapping")
 
 ############################################################
-# 2️⃣ FIX KEYS + DATES
+# FIX KEYS + DATES
 ############################################################
 
 # Fix SKU format safely (avoid double dash)
@@ -54,7 +54,7 @@ promo <- promo %>%
   distinct(promo_id, .keep_all = TRUE)
 
 ############################################################
-# 3️⃣ BUILD WEEKLY SALES (CORRECT GRAIN)
+# BUILD WEEKLY SALES (CORRECT GRAIN)
 ############################################################
 
 weekly_sales <- pos %>%
@@ -68,7 +68,7 @@ weekly_sales <- pos %>%
   )
 
 ############################################################
-# 4️⃣ JOIN DIMENSIONS
+# JOIN DIMENSIONS
 ############################################################
 
 gold <- weekly_sales %>%
@@ -76,7 +76,7 @@ gold <- weekly_sales %>%
   left_join(region, by = c("region_code" = "sales_region_code"))
 
 ############################################################
-# 5️⃣ INVENTORY ALIGNMENT
+# INVENTORY ALIGNMENT
 ############################################################
 
 inventory <- inventory %>%
@@ -111,7 +111,7 @@ gold <- gold %>%
   )
 
 ############################################################
-# 6️⃣ DERIVED METRICS
+# DERIVED METRICS
 ############################################################
 
 gold <- gold %>%
@@ -122,7 +122,7 @@ gold <- gold %>%
   )
 
 ############################################################
-# 7️⃣ BASELINE + UPLIFT
+# BASELINE + UPLIFT
 ############################################################
 
 baseline <- gold %>%
@@ -141,7 +141,7 @@ gold <- gold %>%
   )
 
 ############################################################
-# 8️⃣ TRADE SPEND (FIXED PROPERLY)
+# TRADE SPEND (FIXED PROPERLY)
 ############################################################
 
 pos_with_spend <- pos %>%
@@ -165,7 +165,7 @@ gold <- gold %>%
   )
 
 ############################################################
-# 9️⃣ ROTI
+# ROTI
 ############################################################
 
 gold <- gold %>%
@@ -175,7 +175,7 @@ gold <- gold %>%
   )
 
 ############################################################
-# 🔟 CLEAN NUMERIC ONLY
+# CLEAN NUMERIC ONLY
 ############################################################
 
 gold <- gold %>%
@@ -185,7 +185,7 @@ gold <- gold %>%
   )
 
 ############################################################
-# 1️⃣1️⃣ VALIDATION
+# VALIDATION
 ############################################################
 
 cat("Grain Check:\n")
